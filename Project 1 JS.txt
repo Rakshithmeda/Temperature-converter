@@ -1,0 +1,16 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const convertButton = document.getElementById("convert");
+    convertButton.addEventListener("click", function () {
+        const temperatureInput = parseFloat(document.getElementById("temperature").value);
+        const unitSelect = document.getElementById("unit");
+        const selectedUnit = unitSelect.options[unitSelect.selectedIndex].value;
+
+        if (selectedUnit === "celsius") {
+            const convertedTemperature = (temperatureInput * 9/5) + 32;
+            document.getElementById("result").textContent = `Converted Temperature: ${convertedTemperature.toFixed(2)} °F`;
+        } else if (selectedUnit === "fahrenheit") {
+            const convertedTemperature = (temperatureInput - 32) * 5/9;
+            document.getElementById("result").textContent = `Converted Temperature: ${convertedTemperature.toFixed(2)} °C`;
+        }
+    });
+});
